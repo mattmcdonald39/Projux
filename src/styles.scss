@@ -1,0 +1,144 @@
+/* You can add global styles to this file, and also import other style files */
+#menu-button {
+    margin-left: 15px;
+}
+
+.raven-menu-logo{
+    width: 50px;
+    left: calc(50% - 25px);
+    position: absolute;
+}
+
+p-menu .ui-widget-header.ui-corner-all {
+    display: none !important;
+}
+
+.settings-button {
+    cursor: pointer;
+    color: #ffffff;
+    vertical-align: middle;
+    height: 36px;
+    margin-top: 4px;
+    float: right;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-decoration: none;
+
+    i {
+        -moz-transition: color 0.5s;
+        -o-transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
+        font-size: 36px;
+    }
+}
+
+.footer-link{
+    margin: 0px 15px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.underline {
+    border-bottom: 1px solid #e8e8e8;
+    /* padding: 14px 0px; */
+}
+
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.listLine {
+    cursor: pointer;
+    background: white;
+    transition: all 500ms linear;
+
+}
+
+.listLine:hover {
+    background: #e8e8e8;
+}
+
+.circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+} 
+
+.profile-title {
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+.listLine:last-child {
+    border-bottom: 0px;
+}
+
+// .splash-screen {
+//     background-color: #3F51B5;
+//     height: 100%;
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     margin: 0 auto;
+//     width: 100%;
+// }
+
+
+
+.splash-screen .splash-container {
+    padding-top: 0px;
+    width: 250px;
+    margin: 0;
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@media (max-width: 700px) {
+    .hide-sm {
+        display: none;
+    }
+}
+
+@media (min-width: 701px) {
+    .hide-md {
+        display: none;
+    }    
+}
+
+li.ui-tabmenuitem {
+    font-size: 0.8em !important;
+}
+
+.ui-dropdown-item {
+    span {
+        color: black;
+    }
+}
+
+custom-edit-card .ui-g-12 {
+    margin: 4px 0px;
+}

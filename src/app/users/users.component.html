@@ -1,0 +1,67 @@
+<project-card *ngIf="!editMode && !newUserMode" [name]="'Users'" (add)="newUserMode = true" [list]="list" (itemClicked)="editUser($event)"
+    class="ui-g-12">
+</project-card>
+<custom-edit-card *ngIf="newUserMode" [name]="'New User'" (cancel)="newUserMode = false" (save)="addUser()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newUser.firstName">
+            <label>First Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newUser.lastName">
+            <label>Last Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <p-dropdown [options]="titles" [(ngModel)]="newUser.title" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <p-dropdown [options]="accessRoles" [(ngModel)]="newUser.role" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="newUser.email">
+            <label>Email</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newUser.phone">
+            <label>Phone</label>
+        </span>
+    </div>
+</custom-edit-card>
+<custom-edit-card *ngIf="editMode" [name]="'Edit User'" (cancel)="editMode = false" (save)="saveUser()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedUser.firstName">
+            <label>First Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedUser.lastName">
+            <label>Last Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <p-dropdown [options]="titles" [(ngModel)]="editedUser.title" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <p-dropdown [options]="accessRoles" [(ngModel)]="editedUser.role" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="editedUser.email">
+            <label>Email</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedUser.phone">
+            <label>Phone</label>
+        </span>
+    </div>
+</custom-edit-card>

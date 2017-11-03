@@ -1,0 +1,37 @@
+<project-card *ngIf="!editMode && !addMode"
+  [name]="'Lookups'" 
+  (add)="addPrompt = true; newName = ''"
+  [list]="lookups"
+  (itemClicked)="edit($event)"
+  class="ui-g-12">
+</project-card> 
+<p-dialog header='New lookup name?' [(visible)]="addPrompt" modal="modal" showEffect="fade" width="400">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newName">
+            <label>Name</label>
+        </span>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button type="button" pButton icon="fa-close" (click)="addPrompt=false" label="Cancel"></button>
+        <button type="button" pButton icon="fa-check" [disabled]="!newName" (click)="addModeTrigger()" label="Add"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+<edit-list-card *ngIf="addMode"
+  [name]="newLookup.name"
+  [showButton]="false"
+  (save)="saveLookup(this.newLookup)"
+  [list]="lookupFields"
+  (cancel)="cancel()"
+  class="ui-g-12">
+</edit-list-card>
+<edit-list-card *ngIf="editMode"
+  [name]="editLookup.name"
+  (delete)="deleteLookup(this.editLookup)"
+  [list]="lookupFields"
+  (save)="saveLookup(this.editLookup)"
+  (cancel)="cancel()"
+  class="ui-g-12">
+</edit-list-card>

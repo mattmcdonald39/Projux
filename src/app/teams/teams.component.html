@@ -1,0 +1,33 @@
+<project-card *ngIf="!newTeamMode && !editMode" [name]="'Teams'" (add)="triggerNewTeam()" [list]="list" (itemClicked)="editTeam($event)"
+    class="ui-g-12">
+</project-card>
+
+<custom-edit-card *ngIf="newTeamMode" [name]="'New Team'" (cancel)="newTeamMode = false" (save)="addTeam()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newTeam.name">
+            <label>Team Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12" *ngFor="let user of selectedUsers; let i=index; trackBy:trackByIndex">
+        <p-dropdown [options]="usersListBox" [(ngModel)]="selectedUsers[i]" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <span (click)="increaseUsers()" style="float: right; color: blue; cursor: pointer">+ Add</span>
+    </div>
+</custom-edit-card>
+
+<custom-edit-card *ngIf="editMode" [name]="'Edit Team'" (cancel)="editMode = false" (save)="saveTeam()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedTeam.name">
+            <label>Team Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12" *ngFor="let user of selectedUsers; let i=index; trackBy:trackByIndex">
+        <p-dropdown [options]="usersListBox" [(ngModel)]="selectedUsers[i]" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12">
+        <span (click)="increaseUsers()" style="float: right; color: blue; cursor: pointer">+ Add</span>
+    </div>
+</custom-edit-card>

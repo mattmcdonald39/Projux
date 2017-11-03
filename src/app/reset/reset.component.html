@@ -1,0 +1,32 @@
+<div class="login-panel ui-fluid" style="margin: 0 auto 75px auto; padding: 0;">
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <img width="70px" src="../../assets/demo/images/logo/raven.svg" />
+        </div>
+        <div class="ui-g-12">
+              <span class="md-inputfield">
+                  <input type="password" autocomplete="off" pInputText (keyup)="passwordValid()" (keyup.enter)="resetPassword" [(ngModel)]="password" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                  <label>New Password</label>
+              </span>
+        </div>
+        <div class="ui-g-12">
+            <span class="md-inputfield">
+                <input type="password" autocomplete="off" pInputText (keyup)="passwordValid()" (keyup.enter)="resetPassword"  [(ngModel)]="passwordConfirm" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                <label>New Password Confirm</label>
+            </span>
+        </div>
+        <div class="ui-message ui-messages-error ui-corner-all" *ngIf="resetError">
+            {{message}}
+        </div>
+        <div class="ui-g-12">
+            <button type="button" [disabled]="!passwordIsValid" (click)="resetPassword()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
+                <span class="ui-button-icon-left ui-c fa fa-fw">lock</span>
+                <span class="ui-button-text ui-c">Save New Password</span>
+            </button>
+            <div class="ui-g-12 loginToggle">
+              <i class="material-icons">person</i>
+              <a (click)="goToSignIn()" style="cursor: pointer">Sign In</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<project-card *ngIf="!newCompanyMode && !editMode" [name]="'Companies'" (add)="toggleNewCompanyMode()" [list]="companies"
+    (itemClicked)="editCompany($event)" class="ui-g-12">
+</project-card>
+<custom-edit-card *ngIf="newCompanyMode" [name]="'New Company'" (cancel)="newCompanyMode=false" (save)="addCompany()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newCompany.name">
+            <label>Comapany Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newCompany.address">
+            <label>Address</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="newCompany.city">
+            <label>City</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newCompany.state">
+            <label>State</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="newCompany.phone">
+            <label>Phone</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newCompany.email">
+            <label>Email</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newCompany.website">
+            <label>Website</label>
+        </span>
+    </div>
+</custom-edit-card>
+<custom-edit-card *ngIf="editMode" [name]="'Edit Company'" (cancel)="editMode=false" (save)="saveCompany()">
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedCompany.name">
+            <label>Comapany Name</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedCompany.address">
+            <label>Address</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="editedCompany.city">
+            <label>City</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedCompany.state">
+            <label>State</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="email" pInputText [(ngModel)]="editedCompany.phone">
+            <label>Phone</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedCompany.email">
+            <label>Email</label>
+        </span>
+    </div>
+    <div class="ui-g-12">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="editedCompany.website">
+            <label>Website</label>
+        </span>
+    </div>
+</custom-edit-card>

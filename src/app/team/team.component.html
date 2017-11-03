@@ -1,0 +1,15 @@
+<div class="ui-g card card-w-title" *ngIf="team">
+  <div class="ui-g-12">
+    <h1>{{team.name}} - {{team.company}}</h1>
+  </div>
+  add user<br/>
+  list of users from this team.company
+  <div class="ui-g-12">
+    <h3 *ngFor="let user of users">
+      {{user.firstName}}
+    </h3>
+  </div>
+</div>
+
+
+

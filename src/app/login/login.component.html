@@ -1,0 +1,41 @@
+<div class="login-panel ui-fluid" style="margin: 0 auto 75px auto; padding: 0;">
+    <div class="ui-g">
+        <div class="ui-g-12">
+          <img width="70px" src="../../assets/demo/images/logo/raven.svg" />
+        </div>
+        <div class="ui-g-12 loginToggle">
+            <i class="material-icons" style="margin-right: 5px" *ngIf="emailSent">checkmark</i>
+            <span style="cursor: pointer" *ngIf="emailSent">Password Reset Link Sent</span>
+            <i class="material-icons" style="margin-right: 5px" *ngIf="emailSending">send</i>
+            <span style="cursor: pointer" *ngIf="emailSending">Sending Reset Link...</span>
+        </div>
+        <div class="ui-g-12">
+              <span class="md-inputfield">
+                  <input type="text" autocomplete="off" pInputText (keyup.enter)="loginVisible ? login() : resetPassword()" [(ngModel)]="email" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                  <label>Email</label>
+                  <div class="ui-message ui-messages-error ui-corner-all" style="text-align: left" *ngIf="emailError">
+                      {{message}}
+                  </div>
+              </span>
+        </div>
+        <div class="ui-g-12" *ngIf="loginVisible">
+            <span class="md-inputfield">
+                <input type="password" autocomplete="off" (keyup.enter)="login()" pInputText [(ngModel)]="password" class="ui-inputtext ui-corner-all ui-state-default ui-widget">
+                <label>Password</label>
+                <div class="ui-message ui-messages-error ui-corner-all" style="text-align: left" *ngIf="passwordError">
+                    {{message}}
+                </div>                
+            </span>
+        </div>
+        <div class="ui-g-12">
+            <button type="button" [disabled]="emailSending" (click)="loginVisible ? login() : resetPassword()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
+                <span class="ui-button-icon-left ui-c fa fa-fw" [class.ui-icon-person]="loginVisible" [class.ui-icon-lock]="!loginVisible"></span>
+                <span class="ui-button-text ui-c">{{ loginVisible ? 'Sign In' : 'Reset Password' }}</span>
+            </button>
+            <div class="ui-g-12 loginToggle">
+              <i class="material-icons">{{loginVisible ? 'lock' : 'person'}}</i>
+              <a (click)="toggleLoginForgot()" style="cursor: pointer">{{loginVisible ? 'Forgot' : 'Sign In' }}</a>
+            </div>
+        </div>
+    </div>
+</div>

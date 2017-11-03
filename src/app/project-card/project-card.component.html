@@ -1,0 +1,9 @@
+<div class="card card-title ui-g">
+  <div class="ui-g-12 profile">
+    <div class="profile-title">{{name}}</div>
+    <button (click)="addNew()" pButton type="button" label="Add" class="blue-grey-btn"></button>
+  </div>
+  <div *ngFor="let item of list" (click)="select(item.value)" class="ui-g-12 ui-fluid underline listLine">
+    {{item.label}}
+  </div>
+</div>

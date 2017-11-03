@@ -1,0 +1,41 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-tabMenu [model]="uxTabs"></p-tabMenu>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-8">
+    <div class="card card-w-title ui-g-12">
+      <h1 *ngIf="project">{{project.name}}</h1>
+      <div>Description: <span style="cursor: pointer" (click)="editDescription=true">edit</span></div>
+      {{description}}
+      <!-- <div *ngIf="!editDescription"></div> -->
+      
+      <div class="ui-g-12" *ngIf="editDescription">
+        <p-editor [(ngModel)]="description" [style]="{'height':'320px'}"></p-editor>
+        <!-- <textarea [rows]="3" [cols]="30"[(ngModel)]="description" pInputTextarea placeholder="Project Description" autoResize="autoResize"></textarea> -->
+        <button type="button" label="Save Description" (click)="editDescription=false" pButton></button>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g-4">
+    <div class="card card-w-title ui-g-12 ">
+      <div class="ui-g-12 profile">
+        <div class="profile-title">Tasks</div>
+        <button type="button" icon="ui-icon-add" class="indigo-btn" pButton></button>
+      </div>
+      <div *ngFor="let task of tasks | async" class="ui-g-12 ui-fluid underline listLine">
+        {{task.$value}}
+      </div>
+    </div>
+    <div class="card card-w-title ui-g-12 ">
+      <div class="ui-g-12 profile">
+        <div class="profile-title">Teams</div>
+        <button type="button" icon="ui-icon-add" class="indigo-btn" pButton (click)="goToTeam({$value: 'new'})"></button>
+      </div>
+      <div *ngFor="let team of teams | async" (click)="goToTeam(team)" class="ui-g-12 ui-fluid underline listLine">
+        {{team.$value}}
+      </div>
+    </div>
+  </div>
+</div>

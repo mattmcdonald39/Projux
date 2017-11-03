@@ -1,0 +1,14 @@
+<div class="ui-g card card-w-title profile">
+    <div class="ui-g-12">
+        <h1>{{name}}</h1>
+    </div>
+    <div class="ui-fluid form-group">
+      <ng-content></ng-content>
+        <div class="ui-g-12 center" style="margin-top: 25px">
+            <button pButton type="button" label="Save" (click)="emitSave()"></button>
+        </div>
+        <div class="ui-g-12 center">
+            <a (click)="emitCancel()" style="margin: 0 auto; display: block;" class="footer-link">Cancel</a>
+        </div>
+    </div>
+</div>

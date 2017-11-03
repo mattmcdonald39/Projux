@@ -1,0 +1,28 @@
+<p-dialog header='Delete Lookup?' [(visible)]="promptDelete" modal="modal" showEffect="fade" width="400">
+  <p>Are you sure you would like to delete
+    <strong>{{name}}</strong>? Once deleted this action cannot be undone!</p>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button type="button" pButton icon="fa-close" (click)="promptDelete=false" label="No"></button>
+      <button type="button" pButton icon="fa-check" (click)="deletePressed()" label="Yes, delete"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+<div class="card card-title ui-g">
+  <div class="ui-g-12 profile">
+    <div class="profile-title">{{name}}</div>
+    <button (click)="promptDelete = true" *ngIf="showButton" pButton type="button" label="Delete" class="blue-grey-btn"></button>
+  </div>
+  <div *ngFor="let item of list" class="ui-g-12 ui-fluid">
+    <input type="text" pInputText [(ngModel)]="item.value">
+  </div>
+  <div class="ui-g-12">
+    <span (click)="addToList()" style="float: right; color: blue; cursor: pointer">+ Add</span>
+  </div>
+  <div class="ui-g-12 ui-fluid center" style="margin-top: 25px">
+    <button pButton type="button" label="Save" [disabled]="hasEmptyValues()" (click)="savePressed()"></button>
+  </div>
+  <div class="ui-g-12 center">
+    <a (click)="cancelPressed()" style="margin: 0 auto; display: block;" class="footer-link">Cancel</a>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<p-dialog header='New Project' [(visible)]="promptNewProject" modal="modal" showEffect="fade" width="400">
+    <div class="ui-g-12 ui-fluid">
+        <span class="md-inputfield">
+            <input type="text" pInputText [(ngModel)]="newProjectName">
+            <label>Name:</label>
+        </span>
+    </div>
+
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="promptNewProject=false" label="No"></button>
+            <button type="button" pButton icon="fa-check" (click)="goToProject({$value: newProjectName})" label="Create Project"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<div class="ui-g hide-sm ui-fluid">
+    <div class="ui-g-8 ui-md-8 ui-sm-12">
+        <div class="card card-w-title ui-g-12" *ngIf="user">
+            <div class="ui-g-12">
+                <p-dropdown [options]="companies" (onChange)="getCompanyInfo(selectedCompany)" [(ngModel)]="selectedCompany"></p-dropdown>
+            </div>
+            <div class="ui-g-12">
+                DriveTime Automotive Group Inc. is an American used car retailer and finance company. It is based in Tempe, Arizona, and
+                sells, leases and finances cars to customers with credit issues. The company was formerly known as Ugly Duckling
+                and was renamed DriveTime in 2002. It also spun off Carvana and GO Financial, SilverRock Group Inc, and Bridgecrest
+                Acceptance Corporation. As of 2015, DriveTime had approximately 130 locations in the U.S. and 3,800 employees.
+                <br/>
+                <br/> DriveTime is a private company headquartered in Tempe, Arizona.[4] The company's business model is focused on
+                selling previously owned vehicles to car-buyers with poor credit.[5] It uses a proprietary credit scoring model
+                to finance car purchases at its dealerships in-house.[6][7] DriveTime also leases used cars. According to a company
+                official in June 2015, this leasing model accounts for approximately 20 percent of DriveTime's business.[8]
+                <br/>
+                <br/> DriveTime buys 150,000 cars annually at various auctions.[8] After auction, the company puts the purchased cars
+                through a 14-day inspection at one of its 24 inspection centers. It makes necessary repairs before sending the
+                vehicles to its dealerships. Approximately 8 percent of cars bought at auction do not pass the inspection process
+                and are not sold through its dealerships.[9]
+                <br/>
+                <br/> The company is owned by its chairman, Ernest Garcia II, who bought the company then known as Ugly Duckling in
+                1991, and Ray Fidel, who is its president and CEO.[10][11] The company has approximately 130 locations in the
+                U.S. and as of 2015, employs more than 3,800 workers.[3] In addition to its headquarters in Tempe, the company
+                has an operations call center in Mesa, Arizona and a collection center in Dallas, Texas.[12]
+                <br/>
+                <br/> It also encourages employees to create startup companies. Sister companies spun off from the company include
+                GO Financial, Carvana and SilverRock Group.[13]
+                <br/>
+                <br/> DriveTime ranked 3,793 on the Inc. 5000 list of fastest growing companies after posting $2 billion in revenue
+                and adding 1,192 jobs in 2014.[14] DriveTime ranked No. 15 on Computerworld's 100 Best Places to Work in IT list
+                in 2015.[8]
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-4 ui-md-4 ui-sm-12">
+        <project-card 
+            [name]="'Projects'"
+            (add)="promptNewProject=true"
+            [list]="projects"
+            (itemClicked)="goToProject($event)"
+            class="ui-g-12">
+        </project-card>
+        <project-card 
+            [name]="'Teams'" 
+            (add)="goToTeam({$value: 'new'})"
+            [list]="teams"
+            (itemClicked)="goToTeam($event)"
+            class="ui-g-12">
+        </project-card> 
+    </div>
+</div>
+
+
+<p-tabMenu class="hide-md" [model]="tabMenuItems"></p-tabMenu>
+<div class="ui-g hide-md">
+    <div *ngIf="selectedTab === 'company'" class="card card-w-title ui-g-12">
+        <div class="ui-g-12 ui-fluid">
+            <p-dropdown [options]="companies" (onChange)="getCompanyInfo(selectedCompany)" [autoWidth]="false" [(ngModel)]="selectedCompany"></p-dropdown>
+        </div>
+        <div class="ui-g-12">
+            DriveTime Automotive Group Inc. is an American used car retailer and finance company. It is based in Tempe, Arizona, and
+            sells, leases and finances cars to customers with credit issues. The company was formerly known as Ugly Duckling
+            and was renamed DriveTime in 2002. It also spun off Carvana and GO Financial, SilverRock Group Inc, and Bridgecrest
+            Acceptance Corporation. As of 2015, DriveTime had approximately 130 locations in the U.S. and 3,800 employees.
+            <br/>
+            <br/> DriveTime is a private company headquartered in Tempe, Arizona.[4] The company's business model is focused on selling
+            previously owned vehicles to car-buyers with poor credit.[5] It uses a proprietary credit scoring model to finance
+            car purchases at its dealerships in-house.[6][7] DriveTime also leases used cars. According to a company official
+            in June 2015, this leasing model accounts for approximately 20 percent of DriveTime's business.[8]
+            <br/>
+            <br/> DriveTime buys 150,000 cars annually at various auctions.[8] After auction, the company puts the purchased cars
+            through a 14-day inspection at one of its 24 inspection centers. It makes necessary repairs before sending the vehicles
+            to its dealerships. Approximately 8 percent of cars bought at auction do not pass the inspection process and are
+            not sold through its dealerships.[9]
+            <br/>
+            <br/> The company is owned by its chairman, Ernest Garcia II, who bought the company then known as Ugly Duckling in 1991,
+            and Ray Fidel, who is its president and CEO.[10][11] The company has approximately 130 locations in the U.S. and
+            as of 2015, employs more than 3,800 workers.[3] In addition to its headquarters in Tempe, the company has an operations
+            call center in Mesa, Arizona and a collection center in Dallas, Texas.[12]
+            <br/>
+            <br/> It also encourages employees to create startup companies. Sister companies spun off from the company include GO
+            Financial, Carvana and SilverRock Group.[13]
+            <br/>
+            <br/> DriveTime ranked 3,793 on the Inc. 5000 list of fastest growing companies after posting $2 billion in revenue and
+            adding 1,192 jobs in 2014.[14] DriveTime ranked No. 15 on Computerworld's 100 Best Places to Work in IT list in 2015.[8]
+        </div>
+    </div>
+    <project-card 
+        *ngIf="selectedTab === 'projects'" 
+        [name]="'Projects'"
+        (add)="promptNewProject=true"
+        [list]="projects"
+        (itemClicked)="goToProject($event)"
+        class="ui-g-12">
+    </project-card>
+    <project-card 
+        *ngIf="selectedTab === 'teams'" 
+        [name]="'Teams'" 
+        (add)="goToTeam({$value: 'new'})"
+        [list]="teams"
+        (itemClicked)="goToTeam($event)"
+        class="ui-g-12">
+    </project-card>
+</div>

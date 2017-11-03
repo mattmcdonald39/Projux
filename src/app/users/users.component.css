@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+#userRow:last-child {
+    border-bottom: 0px;
+}
+
+@media (max-width: 500px) {
+    .hide-sm {
+        display: none;
+    }
+}
+
+p-fileupload .ui-button-text {
+    display: none !important;
+}
+
+p-fileupload .ui-button-icon-left {
+    left: 14px !important;
+}
+
+p-fileupload .ui-button {
+    background: red;
+}
